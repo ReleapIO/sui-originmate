@@ -139,7 +139,7 @@ module originmate::quadratic_vesting {
 
     /// @notice Claws back coins to the `recipient` if enabled.
     public entry fun clawback_to<T>(wallet: &mut Wallet<T>, clawback_cap: ClawbackCapability, recipient: address, ctx: &mut TxContext) {
-        transfer::transfer(clawback(wallet, clawback_cap, ctx), recipient)
+        transfer::public_transfer(clawback(wallet, clawback_cap, ctx), recipient)
     }
 
     /// @dev Destroys a clawback capability.
